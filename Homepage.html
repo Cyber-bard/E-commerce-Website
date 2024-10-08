@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberbard Fashion Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic styling for page layout */
+    body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1e90ff, #ff6347); /* Adjust the colors and angle as needed */
+}
+
+        /* Welcome message styling */
+        .welcome-header {
+            text-align: center;
+            margin-top:0.5px;
+            color: white;
+            background: linear-gradient(45deg, #1e90ff, #ff6347);
+            padding: 20px;
+        }
+
+        .welcome-header h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .welcome-header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #ffebcd;
+        }
+
+        .welcome-header h1 span {
+            color: #ffd700;
+            /* Gold highlight */
+        }
+   /* Flash Sale Section */
+        .flash-sale-container {
+            background: linear-gradient(to right, #1e90ff, #ff6347);
+            color: white;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+            height: 150px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .flash-sale-content {
+            display: flex;
+            align-items: center;
+            animation: slide 20s linear infinite;
+            animation-play-state: running;
+        }
+
+        .flash-sale-item {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 0 10px;
+            text-align: center;
+            width: 120px;
+            /* Reduced width for better button visibility */
+            transition: transform 0.3s ease;
+        }
+
+        .flash-sale-item button {
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .flash-sale-item button:hover {
+            background-color: #ff6347;
+        }
+
+        .flash-sale-item:hover {
+            transform: scale(1.1);
+        }
+
+        /* Timer styling */
+        .timer {
+            font-size: 1.5em;
+            text-align: center;
+            margin-bottom: 10px;
+            color: red;
+            font-weight: bold;
+        }
+
+        /* Animation for the flash sale */
+        @keyframes slide {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Pause animation on hover */
+        .flash-sale-container:hover .flash-sale-content {
+            animation-play-state: paused;
+        }
+
+        /* Offer Bubble */
+        .offer-bubble {
+         position: absolute;
+         top: 10px;
+         left: 10px;
+         width: 140px;
+         height: 140px;
+         background: radial-gradient(circle, #ff6347, #ff0000);
+         color: white;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 50%;
+         font-size: 0.9em; /* Reduced font size for better visibility */
+         font-weight: bold;
+         text-align: center; /* Center the text alignment */
+         padding: 10px; /* Added padding for better spacing */
+         box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+         z-index: 10;
+       }
+        
+
+        /* Cloud Bubble Shape */
+        .offer-bubble:before,
+        .offer-bubble:after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background: inherit;
+        }
+
+        .offer-bubble:before {
+            width: 70px;
+            height: 70px;
+            top: -40px;
+            left: -10px;
+        }
+
+        .offer-bubble:after {
+            width: 50px;
+            height: 50px;
+            top: -30px;
+            right: -15px;
+        }
+
+        /* Buttons Container */
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .buttons-container .main-buttons {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+            gap: 20px;
+            margin-left: -20px;
+            /* Adjusted to push buttons slightly to the left */
+        }
+
+        .main-buttons a {
+            padding: 10px 20px;
+            background-color: #1e90ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .main-buttons a:hover {
+            background-color: #ff6347;
+        }
+        /* Button Container Styling */
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Adjust spacing between buttons */
+    margin: 20px;
+}
+
+/* Search Box Styling */
+.search-container {
+    display: flex;
+    align-items: center;
+    margin: 0 10px; /* Space around the search box */
+}
+
+.search-container input {
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    border: 2px solid #ddd;
+    font-size: 1em;
+    width: 200px; /* Adjust width as needed */
+}
+
+.search-container button {
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    border: 2px solid #ddd;
+    background-color: #1e90ff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.search-container button:hover {
+    background-color: #ff6347;
+}
+
+/* Nav Buttons Styling */
+.nav-button, .action-button {
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: #333;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+.nav-button:hover, .action-button:hover {
+    background-color: #555;
+}
+
+.side-buttons {
+    display: flex;
+    gap: 20px;
+    margin-right: -20px;
+    /* Adjusted to push buttons slightly to the left */
+    align-items: center; /* Ensure buttons and cart count are aligned */
+}
+
+.side-buttons a {
+    background-color: #32cd32;
+    /* Different color for differentiation */
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.side-buttons a:hover {
+    background-color: #228b22;
+}
+
+/* Wrapper for cart button and count */
+.cart-container {
+    position: relative; /* Relative positioning for the cart count */
+}
+
+/* Cart button styling */
+#cartButton {
+    background-color:#228b22;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative; /* Allows for cart count overlay positioning */
+}
+
+#cartButton:hover {
+    background-color:#ff6347;
+}
+
+/* Cart count overlay style */
+#cartCount {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+    z-index: 1; /* Ensure it appears above the cart button */
+}
+
+        /* Flash Sale Section */
+   .flash-sale-container {
+    background: linear-gradient(to right, #1e90ff, #ff6347);
+    color: white;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    height: 250px; /* Adjust height as needed */
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.flash-sale-content {
+    display: flex;
+    align-items: center;
+    animation: slide 15s linear infinite;
+    animation-play-state: running;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+.flash-sale-item {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    position: relative;
+    width: 150px; /* Adjust width as needed */
+    text-align: center;
+    margin: 10px; /* Adjust margin as needed */
+    overflow: hidden;
+    padding: 10px; /* Add padding for spacing */
+}
+
+.flash-sale-item h3 {
+    margin: 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    text-align: center;
+    font-size: 1em;
+    border-bottom: 1px solid #fff;
+}
+
+.flash-sale-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+.flash-sale-item .price {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 69, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.flash-sale-item button {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Adjust padding for better visibility */
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    position: absolute;
+    bottom: 50px; /* Adjust bottom position */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.flash-sale-item button:hover {
+    background-color: #ff6347;
+}
+
+.flash-sale-item:hover {
+    transform: scale(1.1);
+}
+
+.timer {
+    font-size: 1em;
+    text-align: left;
+    margin-left: 10%;
+    margin-bottom: 10px;
+}
+
+/* Animation for the flash sale */
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Pause animation on hover */
+.flash-sale-container:hover .flash-sale-content {
+    animation-play-state: paused;
+}
+
+        /* Offer Bubble */
+        .offer-bubble {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #ff6347, #ff0000);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.5em;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            animation: twinkle 1.5s infinite;
+            z-index: 10;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Contact Us Footer Section */
+    .contact-footer {
+    background-color: #f4f4f4;
+    color: white;
+    margin-top: 40px;
+    padding: 30px;
+}
+
+.contact-container {
+    position: relative;
+    background: linear-gradient(45deg, #ff6347, #1e90ff);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.contact-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 150%;
+    height: 100%;
+    transform: translateX(-50%) rotate(45deg);
+    background: linear-gradient(45deg, #ff6347, #ffd700);
+    z-index: 1;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Contact Form Section */
+.email-section {
+    width: 45%;
+    padding: 20px;
+    margin: 0 auto; /* Center the form section */
+    background-color:#1e90ff, #ff6347; /* Light background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    transition: transform 0.3s ease; /* Animation for hover effect */
+}
+
+/* Form Heading */
+.email-section h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.8em;
+    color: #333;
+    text-align: center;
+}
+
+/* Form Inputs and Textarea */
+.email-section input,
+.email-section textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1.1em;
+    background-color: #e6f7ff; /* Soft background for inputs */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Adjust height of textarea */
+.email-section textarea {
+    height: 120px;
+}
+
+/* Focus Effect for Inputs and Textarea */
+.email-section input:focus,
+.email-section textarea:focus {
+    background-color: #d0eaff; /* Slightly darker blue on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(30, 144, 255, 0.8);
+}
+
+/* Submit Button */
+.email-section button {
+    padding: 12px 25px;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Smooth hover and click animations */
+    display: block;
+    margin: 20px auto; /* Center the button */
+}
+
+/* Button Hover Effect */
+.email-section button:hover {
+    background-color: #ff6347;
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+/* Button Click Effect */
+.email-section button:active {
+    background-color: #ff4500; /* Slightly darker color on click */
+    transform: scale(0.98); /* Slightly shrink the button on click */
+}
+
+/* Animation for form appearance */
+.email-section {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Social icons styling */
+.social-section {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-row {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.social-row a {
+    margin: 0 10px;
+    padding: 10px;
+    color: white;
+    background-color: #333;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.2em; /* Maintained size */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Added transition for smooth hover effect */
+}
+
+.social-row a i {
+    vertical-align: middle; /* Align the icons properly */
+}
+
+.social-row a:hover {
+    background-color: #ffebcd;
+    color: #333;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Contact Info styling */
+.contact-info {
+    margin-top: 20px;
+    text-align: center;
+    transform: translateX(-10%);
+}
+
+.contact-info p {
+    font-size: 1em;
+    color: #333;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .email-section,
+    .social-section {
+        width: 100%;
+    }
+}
+
+
+/* Featured Products Section */
+/* Featured Products Section */
+.featured-products-section {
+    padding: 50px;
+    background: linear-gradient(135deg,#1e90ff, #ff6347); /* Gradient background */
+    text-align: center;
+    position: relative;
+}
+
+.featured-products-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #fff; /* Ensure the text is visible against the gradient */
+}
+
+.featured-products-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.featured-products-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding-bottom: 20px; /* Space for any scroll-related elements */
+    box-sizing: border-box;
+}
+
+/* Style for the scroll button */
+.scroll-button {
+    position: absolute;
+    bottom: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    background: linear-gradient(to right, #1e90ff, #ff6347); /* Gradient background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    opacity: 0.8; /* Slightly transparent */
+    z-index: 1000; /* Ensure it is above other content */
+    display: block; /* Always visible within the container */
+}
+
+/* Hover effect */
+.scroll-button:hover {
+    background-color: #ff4500;
+}
+
+/* Water-drop Animation */
+@keyframes trickle {
+    0% {
+        opacity: 0.8;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 0.8;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation */
+.scroll-button {
+    animation: trickle 2s infinite; /* Adjust timing as needed */
+}
+
+.featured-products-page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between items in both rows and columns */
+    min-width: 100%; /* Ensure each page takes full width of the container */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    justify-content: center; /* Center the content horizontally */
+}
+
+.featured-product {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px); /* Three items per row, adjusted for gaps */
+    transition: transform 0.3s ease;
+    text-align: center;
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.featured-product img {
+    width: 100%;
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensure image covers the area without distortion */
+    border-radius: 10px;
+    margin-bottom: 10px; /* Space between image and text */
+}
+
+.featured-product h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin: 15px 0 10px 0;
+}
+
+.featured-product p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.featured-product button {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.featured-product button:hover {
+    background-color: #ff4500;
+}
+
+.featured-product:hover {
+    transform: scale(1.05);
+}
+
+
+.footer {
+    padding: 20px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+.newsletter-signup {
+    margin: 20px 0;
+}
+
+.newsletter-signup h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.newsletter-signup p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.newsletter-form input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.newsletter-form button {
+    background-color: #1025e2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #ff4500;
+}
+/* Updated Footer Section */
+.site-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 1em;
+}
+/* Animated Customer Testimonials Section */
+/* Animated Testimonials Section */
+.animated-testimonials {
+    background: linear-gradient(135deg, #1e90ff, #ff6347); /* Stylish gradient background */
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-testimonials::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 80%);
+    transform: translateX(-50%) rotate(-30deg);
+    z-index: 1;
+}
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.testimonials-container h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+    animation: fadeIn 1s ease-out;
+}
+
+.testimonials-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+    animation: slideIn 1s ease-out;
+}
+
+.testimonial-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 300px;
+    margin: 0 auto;
+    transition: transform 0.6s, box-shadow 0.6s;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.testimonial-image {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.testimonial-image img {
+    border-radius: 50%;
+    width: 60px; /* Small size to display only the face */
+    height: 60px; /* Small size to display only the face */
+    object-fit: cover;
+    border: 4px solid #fff; /* White border for contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow for a 3D effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-image img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Darker shadow on hover */
+}
+
+.testimonial-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.testimonial-card h4 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 0;
+}
+
+.testimonial-card span {
+    display: block;
+    color: #888;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Overlay styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it overlays above all other content */
+}
+
+.overlay-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto; /* Scrollable if content overflows */
+    position: relative;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.5s ease-out;
+}
+.product-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Space between product cards */
+    margin-bottom: 20px; /* Space between rows */
+}
+
+.product-card {
+    flex: 1;
+    background: linear-gradient(135deg, #f3f4f6, #d1d9e6);
+    padding: 15px;
+    border-radius: 10px;
+    height: auto;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for card hover effect */
+
+}
+
+.product-card img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 5px;
+     margin-bottom: 10px;
+    transition: transform 0.3s ease;
+ } 
+ /* Animation for image hover effect */
+.product-card h3 {
+    margin: 10px 0;
+     font-size: 18px;
+}
+
+.product-card p {
+    margin: 5px 0;
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+    background: linear-gradient(135deg,#1e90ff, #ff6347 );
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+.product-card img:hover {
+    transform: scale(1.1); /* Slightly enlarge the image on hover */
+}
+.buy-now-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    height:auto;
+    cursor:pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.buy-now-btn:hover {
+    background-color: #ff6347;
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Additional Styles for Buttons and Products */
+nav button, .product button, .order-now-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+nav button:hover, .product button:hover, .order-now-btn:hover {
+    background-color: #0056b3;
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+#cartOverlay {
+    display: block; /* Show cart overlay */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+#cartOverlay .overlay-content {
+    background: #fff;
+    padding: 20px;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    position: relative;
+}
+
+#cartOverlay .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#cartOverlay .cart-items {
+    margin-bottom: 20px;
+}
+
+/* Cart item layout */
+#cartOverlay .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    gap: 10px; /* Adds space between columns */
+}
+
+#cartOverlay .cart-item:last-child {
+    border-bottom: none;
+}
+
+/* Ensures equal space distribution across all items */
+#cartOverlay .cart-item > span {
+    flex: 1;
+    text-align: center;
+}
+
+#cartOverlay .cart-item .cart-item-name {
+    text-align: left;
+    flex: 2; /* Give the name more space */
+}
+
+/* Button alignment for quantity controls */
+.increment-btn, .decrement-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.increment-btn:hover, .decrement-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Align the quantity number between the buttons */
+.quantity-display {
+    text-align: center;
+    min-width: 30px;
+}
+
+.remove-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background-color: darkred;
+}
+
+/* Cart summary section */
+#cartOverlay .cart-summary {
+    font-weight: bold;
+    text-align: right;
+}
+
+#cartOverlay .cart-summary p {
+    margin: 5px 0;
+}
+
+/* Ensure neat layout for the quantity controls */
+.quantity-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+/* Responsive behavior */
+@media (max-width: 600px) {
+    #cartOverlay .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #cartOverlay .cart-item > span,
+    #cartOverlay .cart-item .quantity-control {
+        text-align: left;
+        flex: 1;
+    }
+
+    #cartOverlay .cart-item .remove-btn {
+        align-self: flex-end;
+    }
+}
+
+    </style>
+<div id="shoesHubOverlay" class="overlay">
+    <div class="overlay-content">
+        <span id="closeOverlay" class="close-btn">&times;</span>
+        <h2>Available Shoes in Store</h2>
+        <div class="product-grid">
+            <!-- Row 1 -->
+            <div class="product-row">
+                <div class="product-card">
+                    <img src="images/trending sneakers.jpg" alt="Trending Sneakers">
+                    <h3>Trending Sneakers</h3>
+                    <p>$50.00</p>
+                    <p>Perfect for your daily runs, these trending sneakers offer unmatched comfort and support with a
+                        sleek design.</p>
+                    <button class="buy-now-btn" onclick="addToCart('Trending Sneakers', 50.00)">Buy Now</button>
+                </div>
+                <div class="product-card">
+                    <img src="images/sports shoes.jpg" alt="Sports Shoes">
+                    <h3>Sports Shoes</h3>
+                    <p>$120.00</p>
+                    <p>Incredibly classic and versatile, these sports shoes provide durability and a timeless style for
+                        any outfit.</p>
+                    <button class="buy-now-btn" onclick="addToCart('Sports Shoes', 120.00)">Buy Now</button>
+                </div>
+            </div>
+            <!-- Row 2 -->
+            <div class="product-row">
+                <div class="product-card">
+                    <img src="images/Nike airforce.jpg" alt="Nike Airforce">
+                    <h3>Nike Airforce</h3>
+                    <p>$80.00</p>
+                    <p>Ideal for both sports and casual wear, these Nike Airforce sneakers combine comfort with a sporty
+                        look for maximum performance.</p>
+                    <button class="buy-now-btn" onclick="addToCart('Nike Airforce', 80.00)">Buy Now</button>
+                </div>
+                <div class="product-card">
+                    <img src="images/Leather.jpg" alt="Leather">
+                    <h3>Leather</h3>
+                    <p>$65.00</p>
+                    <p>Elegant and easy to wear, these leather shoes are perfect for a relaxed yet refined look suitable
+                        for various occasions.</p>
+                    <button class="buy-now-btn" onclick="addToCart('Leather', 65.00)">Buy Now</button>
+                </div>
+            </div>
+            <!-- Row 3 -->
+            <div class="product-row">
+                <div class="product-card">
+                    <img src="images/kitten heels.jpg" alt="Kitten Heels">
+                    <h3>Kitten Heels</h3>
+                    <p>$90.00</p>
+                    <p>Designed for comfort and style, these kitten heels provide a sophisticated touch to your outfit
+                        with easy-to-wear functionality.</p>
+                    <button class="buy-now-btn" onclick="addToCart('Kitten Heels', 90.00)">Buy Now</button>
+                </div>
+                <div class="product-card">
+                    <img src="images/jordans.jpg" alt="Jordans">
+                    <h3>Jordans</h3>
+                    <p>$55.00</p>
+                    <p>Casual and stylish, these Jordans are perfect for everyday wear, combining comfort with a trendy
+                        design.</p>
+                    <button class="buy-now-btn" onclick="addToCart('Jordans', 55.00)">Buy Now</button>
+                </div>
+            </div>
+            <!-- Row 4 -->
+            <div class="product-row">
+                <div class="product-card">
+                    <img src="images/converse.jpg" alt="Converse">
+                    <h3>Converse</h3>
+                    <p>$140.00</p>
+                    <p>Durable and reliable, these Converse shoes are designed to withstand tough conditions while
+                        offering superior comfort and protection.</p>
+                    <button class="buy-now-btn" onclick="addToCart('Converse', 140.00)">Buy Now</button>
+                </div>
+                <div class="product-card">
+                    <img src="images/Basketball shoes.jpg" alt="Basketball Shoes">
+                    <h3>Basketball Shoes</h3>
+                    <p>$60.00</p>
+                    <p>Convenient and stylish, these basketball shoes are perfect for a quick, effortless look with
+                        comfort and ease of wear.</p>
+                    <button class="buy-now-btn" onclick="addToCart('Basketball Shoes', 60.00)">Buy Now</button>
+                </div>
+            </div>
+            <!-- Row 5 -->
+            <div class="product-row">
+                <div class="product-card">
+                    <img src="images/Bartus.jpg" alt="Bartus">
+                    <h3>Bartus</h3>
+                    <p>$75.00</p>
+                    <p>These Bartus shoes offer additional ankle support and a bold look, combining functionality with a
+                        fashionable edge.</p>
+                    <button class="buy-now-btn" onclick="addToCart('Bartus', 75.00)">Buy Now</button>
+                </div>
+                <div class="product-card">
+                    <img src="images/Adidas sneaker.jpg" alt="Adidas Sneaker">
+                    <h3>Adidas Sneaker</h3>
+                    <p>$130.00</p>
+                    <p>Warm and stylish, these Adidas sneakers provide both comfort and a chic appearance for colder
+                        weather.</p>
+                    <button class="buy-now-btn" onclick="addToCart('Adidas Sneaker', 130.00)">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="cartOverlay" class="overlay" style="display: none;">
+    <div class="overlay-content">
+        <span id="closeCartOverlay" class="close-btn">&times;</span>
+        <h2>Shopping Cart</h2>
+        <div id="cartItems" class="cart-items">
+            <p id="emptyCartMessage">Your cart is empty. Click on items to add them!</p>
+        </div>
+        <div class="cart-summary">
+            <p>Total Items: <span id="totalItems">0</span></p>
+            <p>Total Price: $<span id="totalPrice">0.00</span></p>
+        </div>
+        <button class="order-now-btn" onclick="placeOrder()">Place Order</button>
+    </div>
+</div>
+
+</head>
+
+<body>
+
+    <!-- Welcome Header -->
+    <header class="welcome-header">
+        <h1>Welcome to <span>Cyberbard Fashion Hub</span></h1>
+        <p>Your one-stop destination for the latest trends, stylish apparel, and timeless fashion statements. Shop with
+            confidence and redefine your style, because at Cyberbard, fashion meets passion!</p>
+    </header>
+
+    <!-- Buttons Container -->
+    <div class="buttons-container">
+        <!-- Main Buttons (Centered) -->
+        <div class="main-buttons">
+            <a href="#home">Home</a>
+             <a id="shoesHubBtn" href="javascript:void(0);">Shoes Hub</a>
+            <a href="#clothes-hub">Clothes Hub</a>
+        </div>
+        <!-- Search Box -->
+        <div class="search-container">
+            <input type="text" id="search-box" placeholder="Search for shoes or clothes..." />
+            <button onclick="searchItem()">Search</button>
+        </div>
+        <!-- Side Buttons (Right Aligned) -->
+        <div class="side-buttons">
+        <div class="cart-container">
+            <button id="cartButton" onclick="showCart()">Cart</button>
+            <span id="cartCount">0</span>
+        </div>
+        <a href="#order">Order Now</a>
+        </div>
+    </div>
+
+    <!-- Flash Sale Section -->
+<section id="flash-sale" class="flash-sale-container">
+    <div class="offer-bubble">Offer! Offer!! Flash Sale</div>
+    <div class="timer" id="flash-sale-timer">01:00:00</div>
+    <div class="flash-sale-content">
+        <div class="flash-sale-item">
+            <h3>ADIDAS</h3>
+            <img src="images/Adidas sneaker.jpg" alt="Adidas sneaker">
+            <p class="price">$19.99</p>
+            <button onclick="addToCart('ADIDAS', 19.99)">Buy Now</button>
+        </div>
+        <div class="flash-sale-item">
+            <h3>BARTUS</h3>
+            <img src="images/Bartus.jpg" alt="Shirt">
+            <p class="price">$29.99</p>
+            <button onclick="addToCart('BARTUS',29.99)">Buy Now</button>
+        </div>
+        <div class="flash-sale-item">
+            <h3>JEANS</h3>
+            <img src="images/Jeans.jpg" alt="Classy jeans">
+            <p class="price">$39.99</p>
+            <button onclick="addToCart('JEANS',39.99)">Buy Now</button>
+        </div>
+        <div class="flash-sale-item">
+            <h3>OXFORDS</h3>
+            <img src="images/Leather.jpg" alt="Leather shoes">
+            <p class="price">$49.99</p>
+            <button onclick="addToCart('OXFORDS',49.99)">Buy Now</button>
+        </div>
+        <div class="flash-sale-item">
+            <h3>KITTEN HEELS</h3>
+            <img src="images/kitten heels.jpg" alt="Heels">
+            <p class="price">$59.99</p>
+            <button onclick="addToCart('KITTEN HEELS',59.99)">Buy Now</button>
+        </div>
+        <div class="flash-sale-item">
+            <h3>T-SHIRT</h3>
+            <img src="images/Plain T-shirt.jpg" alt="Classy shirts">
+            <p class="price">$69.99</p>
+            <button onclick="addToCart('T-SHIRT',69.99)">Buy Now</button>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products Section -->
+<section class="featured-products-section">
+    <h2>Featured Products</h2>
+    <div class="featured-products-wrapper">
+        <div class="featured-products-container">
+            <!-- Page 1 -->
+            <div class="featured-products-page">
+                <div class="featured-product">
+                    <img src="images/Nike airforce.jpg" alt="Product 1">
+                    <h3>Airforce</h3>
+                    <p>Elevate your style with Airforce Sneakers—where comfort meets classic design. Perfect for any occasion, these sneakers
+                    offer durability and a timeless look. Step up your game with a touch of effortless style.</p>
+                    <button onclick="addToCart('Airforce',200)">Buy Now</button>
+                </div>
+                <div class="featured-product">
+                    <img src="images/Store.jpg" alt="Product 2">
+                    <h3>Storefront View</h3>
+                    <p>Discover our latest arrivals in style with the freshest trends and designs. Check out what's new at our store!</p>
+                    <button>Explore</button>
+                </div>
+                <div class="featured-product">
+                    <img src="images/flannel shirt.jpg" alt="Classy shirts">
+                    <h3>Flannel Shirt</h3>
+                    <p>Elevate your wardrobe with the Flur Nel Shirt—designed for both style and comfort. Crafted from premium, breathable
+                    fabric, this shirt features a modern cut and versatile design, perfect for any occasion.</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="featured-product">
+                    <img src="images/clothes hub.jpg" alt="Classic trends for you">
+                    <h3>Fashion For you</h3>
+                    <p>Discover the latest trends and timeless styles tailored just for you. Our curated collection offers everything from chic
+                    essentials to standout statement pieces, ensuring you always look your best. Explore fashion that fits your unique style
+                    and enhances your everyday wardrobe.</p>
+                    <button>Explore</button>
+                </div>
+                <div class="featured-product">
+                    <img src="images/jordans.jpg" alt="Classy shoes">
+                    <h3>(J1)Jordans</h3>
+                    <p>Step up your game with the iconic (J1) Jordans. These sneakers combine classic design with modern comfort, featuring
+                    premium materials and unparalleled support. Perfect for both athletic performance and casual wear, the (J1) Jordans are
+                    a must-have for any sneaker enthusiast.</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="featured-product">
+                    <img src="images/Officials set.jpg" alt="opulent Outfits">
+                    <h3>Opulent Outfits</h3>
+                    <p>Explore our latest collection designed for the modern professional. Our garments blend classic elegance with
+                    contemporary style, crafted from high-quality materials for a refined look and exceptional comfort. Whether you’re
+                    dressing for success or making a statement, our selection offers versatile options to elevate your wardrobe.</p>
+                    <button>Explore</button>
+                </div>
+                  <button class="scroll-button">Scroll for More</button>
+            </div>
+            <!-- Page 2 -->
+            <div class="featured-products-page">
+                <div class="featured-product">
+                    <img src="images/Modern Cardigan.jpg" alt="modern dress">
+                    <h3>Modern Cardigan</h3>
+                    <p>Elevate your layering game with our Modern Cardigan. Crafted from soft, premium fabric, this versatile piece adds a
+                    touch of sophistication to any outfit. Its sleek design and tailored fit make it perfect for both casual and
+                    professional settings. Stay cozy and stylish with a cardigan that seamlessly blends comfort and contemporary fashion.</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="featured-product">
+                    <img src="images/sports shoes.jpg" alt="Product 8">
+                    <h3>Sport Shoes</h3>
+                    <p>Discover the perfect blend of performance and style with our Sports Shoes collection. Designed for athletes and active
+                    individuals, these shoes feature advanced cushioning, superior grip, and breathable materials to enhance your comfort
+                    and boost your performance. Whether you're hitting the gym or exploring the outdoors, our sports shoes are engineered to
+                    keep you moving with confidence and ease. Explore our range and find the ideal pair to support your active lifestyle.</p>
+                    <button>Explore</button>
+                </div>
+                <div class="featured-product">
+                    <img src="images/trending sneakers.jpg" alt="Product 9">
+                    <h3>Sneakers</h3>
+                    <p>Step into the spotlight with our Trending Sneakers collection. These sneakers are at the forefront of fashion, combining
+                    cutting-edge design with ultimate comfort. Featuring bold colors, innovative materials, and versatile styles, they’re
+                    perfect for making a statement both on and off the street. Stay ahead of the curve and add a pair of these must-have
+                    sneakers to your collection today.</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="featured-product">
+                    <img src="images/converse.jpg" alt="Product 10">
+                    <h3>Converse shoes</h3>
+                    <p>Embrace timeless style with Converse Shoes, renowned for their classic design and unbeatable comfort. Whether you're
+                    looking for the iconic Chuck Taylors or a fresh new take, these shoes offer versatility and durability for any occasion.
+                    Perfect for casual wear or making a fashion statement, Converse Shoes are a must-have staple for every wardrobe.Visit our store </p>
+                    <button>Explore</button>
+                </div>
+                <div class="featured-product">
+                    <img src="images/Basketball shoes.jpg" alt="Product 11">
+                    <h3>Court Kings</h3>
+                    <p>Unleash your full potential on the court with our Basketball Shoes collection. Engineered for peak performance, these
+                    shoes offer exceptional support, superior grip, and responsive cushioning to elevate your game. Designed with both style
+                    and functionality in mind, they ensure you stay agile and comfortable through every dribble, jump, and slam dunk. Step
+                    into your best game yet and dominate the court with confidence.</p>
+                    <button>Buy Now</button>
+                </div>
+                <div class="featured-product">
+                    <img src="images/Hats store.jpg" alt="Product 12">
+                    <h3>Urban Top Hats</h3>
+                    <p>Redefine your urban style with our Urban Top Hats, where classic elegance meets modern edge. Each hat is meticulously
+                    crafted to capture the essence of city sophistication while offering unparalleled comfort and versatility. With sleek
+                    lines and premium materials, these top hats are designed for those who dare to stand out. Perfect for making a statement
+                    on the streets or adding a touch of distinction to your look, our Urban Top Hats are the ultimate accessory for the
+                    contemporary trendsetter.</p>
+                    <button>Explore</button>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll Button -->
+        <div class="scroll-button-wrapper">
+            <button  class="scroll-bubble">Scroll for more</button>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Us Footer Section -->
+<footer class="contact-footer">
+    <div class="contact-container">
+        <div class="contact-content">
+            <div class="email-section">
+                <h3>Contact Us</h3>
+                <p>In case of any complaints or further explanations needed, feel free to contact us.</p>
+                <form action="contact.php" method="post">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" required><br><br>
+                
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required><br><br>
+                
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="5" required></textarea><br><br>
+                
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+    <div class="social-section">
+        <div class="social-row">
+            <a href="https://www.facebook.com/crazlyen.nexh.7/" class="social-icon" target="_blank">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://x.com/Tonnie_01" class="social-icon" target="_blank">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/_draper.08/?hl=en" class="social-icon" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+        <div class="social-row">
+            <a href="https://www.tiktok.com/@yourprofile" class="social-icon" target="_blank">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="https://wa.me/254793001086" class="social-icon" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+
+            <div class="contact-info">
+                <p>
+                           Mobile Numbers::
+                           <b></b>
+                    <b><a href="tel:+254793001086">+254793001086</a></br>
+                        <b></b>
+                    <a href="tel:+254796464891">+254796464891</a>
+                </p>
+            </div>
+            <!-- Newsletter Signup Form -->
+            <div class="newsletter-signup">
+                <h3>Join Our Newsletter</h3>
+                <p>Sign up for exclusive offers and updates. Enjoy a discount on your first purchase!</p>
+                <form action="YOUR_FORM_ACTION_URL" method="post" class="newsletter-form">
+                    <input type="email" name="email" placeholder="cyberbard745@gmail.com" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Animated Customer Testimonials Section -->
+<section class="animated-testimonials">
+    <div class="testimonials-container">
+        <h2>What Our Customers Are Saying</h2>
+        <div class="testimonials-wrapper">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <img src="images/doe.jpg" alt="Jane Doe" class="testimonial-image">
+                <p>"The best fashion hub I've ever used! The variety and quality of the products are exceptional. Highly
+                    recommend!"</p>
+                <h4>Jane Doe</h4>
+                <span>Fashion Enthusiast</span>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <img src="images/john.jpg" alt="John Smith" class="testimonial-image">
+                <p>"Excellent service and fast shipping. The customization options are a game changer for me. Love it!"
+                </p>
+                <h4>John Smith</h4>
+                <span>Professional Stylist</span>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <img src="images/emily.jpg" alt="Emily Johnson" class="testimonial-image">
+                <p>"A wonderful experience from start to finish. The size guide was spot on, and the quality exceeded my
+                    expectations."</p>
+                <h4>Emily Johnson</h4>
+                <span>Content Creator</span>
+            </div>
+        </div>
+    </div>
+</section>
+    <script>
+  // Flash sale countdown timer
+    function startFlashSaleTimer() {
+        let timerDisplay = document.getElementById('flash-sale-timer');
+        let timeRemaining = 3600; // 60 minutes in seconds
+
+        const updateTimer = () => {
+            let minutes = Math.floor(timeRemaining / 60);
+            let seconds = timeRemaining % 60;
+
+            if (seconds < 10) {
+                seconds = '0' + seconds;
+            }
+
+            timerDisplay.textContent = `00:${minutes < 10 ? '0' + minutes : minutes}:${seconds}`;
+
+            if (timeRemaining > 0) {
+                timeRemaining--;
+            } else {
+                clearInterval(timer);
+                // Optionally restart or trigger new sale
+                timerDisplay.textContent = "00:00:00";
+            }
+        };
+
+        updateTimer();
+        const timer = setInterval(updateTimer, 1000);
+    }
+
+    // Call the function on window load
+    window.addEventListener('load', startFlashSaleTimer);
+    </script>
+    <script>
+        const container = document.querySelector('.featured-products-container');
+
+        let isScrolling = true;
+        setInterval(() => {
+            if (isScrolling) {
+                container.scrollBy({ left: 1, behavior: 'smooth' });
+            }
+        }, 50);
+
+        // Pause scrolling on hover
+        container.addEventListener('mouseover', () => {
+            isScrolling = false;
+        });
+
+        container.addEventListener('mouseout', () => {
+            isScrolling = true;
+        });
+    function searchItem() {
+    var query = document.getElementById('search-box').value.toLowerCase();
+    
+    if (query.includes("shoe")) {
+    window.location.href = '#shoes-hub'; // Redirect to Shoes Hub
+    } else if (query.includes("clothe") || query.includes("clothing") || query.includes("apparel")) {
+    window.location.href = '#clothes-hub'; // Redirect to Clothes Hub
+    } else {
+    alert('No matching items found. Please try searching for "shoe" or "clothes".');
+    }
+    }
+    
+    // Optional: Make the search box active with a border effect when typing
+    document.getElementById('search-box').addEventListener('focus', function() {
+    this.style.borderColor = '#1e90ff';
+    });
+    
+    document.getElementById('search-box').addEventListener('blur', function() {
+    this.style.borderColor = '#ddd';
+    });
+    document.querySelector('.scroll-button').addEventListener('click', () => {
+            const container = document.querySelector('.featured-products-container');
+            container.scrollBy({ left: container.clientWidth, behavior: 'smooth' });
+        });
+    /*scrolling button*/
+    document.addEventListener('DOMContentLoaded', function () {
+            const scrollButton = document.querySelector('.scroll-button');
+            const pages = document.querySelectorAll('.featured-products-page');
+            let currentPage = 0;
+
+            function updateButton() {
+                if (currentPage < pages.length - 1) {
+                    scrollButton.textContent = 'Scroll for More';
+                } else {
+                    scrollButton.textContent = 'Scroll to Home';
+                }
+            }
+
+            function checkButtonVisibility() {
+                const scrollPosition = window.scrollX;
+                const pageWidth = window.innerWidth;
+                const pageIndex = Math.floor(scrollPosition / pageWidth);
+
+                // Ensure button visibility when between pages
+                if (pageIndex < pages.length - 1 &&
+                    (scrollPosition % pageWidth > 0 && scrollPosition % pageWidth < pageWidth)) {
+                    scrollButton.classList.add('scroll-button-visible');
+                } else if (pageIndex === pages.length - 1) {
+                    scrollButton.classList.add('scroll-button-visible');
+                } else {
+                    scrollButton.classList.remove('scroll-button-visible');
+                }
+            }
+
+            // Initial update
+            updateButton();
+
+            // Update button visibility on scroll
+            window.addEventListener('scroll', function () {
+                const scrollPosition = window.scrollX;
+                const pageWidth = window.innerWidth;
+
+                currentPage = Math.floor((scrollPosition + pageWidth / 2) / pageWidth);
+                updateButton();
+                checkButtonVisibility();
+            });
+
+            // Handle button click
+            scrollButton.addEventListener('click', function () {
+                if (currentPage < pages.length - 1) {
+                    window.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
+                } else {
+                    window.location.href = '/'; // Change to your home page URL
+                }
+            });
+
+            // Add animation class to button
+            scrollButton.classList.add('animate');
+        });
+    // Get elements
+    const shoesHubBtn = document.getElementById('shoesHubBtn');
+    const shoesHubOverlay = document.getElementById('shoesHubOverlay');
+    const closeOverlay = document.getElementById('closeOverlay');
+
+    // Open overlay when Shoes Hub button is clicked
+    shoesHubBtn.onclick = function () {
+        shoesHubOverlay.style.display = 'flex';
+    };
+
+    // Close overlay when the close button is clicked
+    closeOverlay.onclick = function () {
+        shoesHubOverlay.style.display = 'none';
+    };
+
+    // Close overlay when clicking outside the content area
+    window.onclick = function (event) {
+        if (event.target === shoesHubOverlay) {
+            shoesHubOverlay.style.display = 'none';
+        }
+    };
+   // Show the cart overlay
+    function showCart() {
+        document.getElementById('cartOverlay').style.display = 'block';
+    }
+
+    // Hide the cart overlay
+    document.getElementById('closeCartOverlay').onclick = function () {
+        document.getElementById('cartOverlay').style.display = 'none';
+    };
+
+    // Function to update the cart display
+    function updateCart() {
+        const cartItems = document.getElementById('cartItems');
+        const totalItems = document.getElementById('totalItems');
+        const totalPrice = document.getElementById('totalPrice');
+        const emptyCartMessage = document.getElementById('emptyCartMessage');
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cartItems.innerHTML = ''; // Clear existing items
+
+        let total = 0;
+        if (cart.length === 0) {
+            emptyCartMessage.style.display = 'block'; // Show message if cart is empty
+        } else {
+            emptyCartMessage.style.display = 'none'; // Hide message if there are items
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                // Dynamically set data-index for increment and decrement buttons
+                cartItems.innerHTML += `
+                <div class="cart-item">
+                    <span>${item.name} (${item.quantity})</span>
+                    <span>$${itemTotal.toFixed(2)}</span>
+                    <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+                    <button class="increment-btn" onclick="incrementItem(${index})">+</button>
+                    <button class="decrement-btn" onclick="decrementItem(${index})">-</button>
+                </div>
+            `;
+            });
+        }
+
+        totalItems.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        totalPrice.textContent = total.toFixed(2);
+    }
+
+    // Function to remove item from cart
+    function removeFromCart(index) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (index >= 0 && index < cart.length) {
+            cart.splice(index, 1); // Remove item from cart
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+            updateCart(); // Refresh cart display
+        }
+    }
+
+    // Function to increment item quantity in the cart
+    function incrementItem(index) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (index >= 0 && index < cart.length) {
+            cart[index].quantity += 1; // Increase quantity
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+            updateCart(); // Refresh cart display and count
+        }
+    }
+
+    // Function to decrement item quantity in the cart
+    function decrementItem(index) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (index >= 0 && index < cart.length) {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity -= 1; // Decrease quantity
+            } else {
+                cart.splice(index, 1); // Remove item if quantity is 0
+            }
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+            updateCart(); // Refresh cart display
+        }
+    }
+
+    // Load cart items when the page is loaded
+    window.onload = () => {
+        updateCart(); // Initialize cart display
+    };
+
+    // Function to add items to the cart
+    function addToCart(name, price) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let item = cart.find(item => item.name === name);
+        if (item) {
+            item.quantity += 1;
+        } else {
+            cart.push({ name, price, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${name} has been added to your cart.`);
+        updateCart(); // Update the cart overlay and count
+    }
+
+    // Update cart count
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById('cartCount').textContent = cartCount;
+    }
+
+    // Call updateCartCount on page load to reflect current cart state
+    document.addEventListener('DOMContentLoaded', updateCartCount);
+
+    // Attach event listener to the cart button
+    document.getElementById('cartButton').addEventListener('click', showCart);
+      
+    </script>
+</body>
+<!-- Updated Footer Section -->
+<footer class="site-footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Your Fashion Hub. All rights reserved.</p>
+    </div>
+</footer>
+</html>
